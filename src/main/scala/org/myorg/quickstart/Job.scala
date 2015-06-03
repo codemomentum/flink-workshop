@@ -2,6 +2,10 @@ package org.myorg.quickstart
 
 import org.apache.flink.api.scala._
 
+/**
+ * dataset: http://dataartisans.github.io/flink-training/exercises/mailData.html
+ * exercise: http://dataartisans.github.io/flink-training/exercises/mailCount.html
+ */
 object Job {
   def main(args: Array[String]) {
     // set up the execution environment
@@ -20,8 +24,5 @@ object Job {
 
     //mails.first(1).print()
 
-
-    // execute program
-    //env.execute("Flink Scala API Skeleton")
   }
 }
