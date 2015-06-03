@@ -14,7 +14,7 @@ object Job {
 
     //, String, String, String, String
     val mails = env.readCsvFile[(String, String)](
-      "/Users/halit/github/quickstart/src/main/resources/processed",
+      "/Users/halit/github/flink-workshop-berlin/src/main/resources/processed",
       lineDelimiter = "##//##",
       fieldDelimiter = "#|#",
       includedFields = Array(1, 2)
