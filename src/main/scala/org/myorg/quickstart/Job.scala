@@ -9,7 +9,7 @@ package org.myorg.quickstart
  * "License"); you may not use this file except in compliance
  * with the License.  You may obtain a copy of the License at
  *
- *     http://www.apache.org/licenses/LICENSE-2.0
+ * http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -48,10 +48,10 @@ object Job {
      *
      * then, transform the resulting DataSet[String] using operations
      * like:
-     *   .filter()
-     *   .flatMap()
-     *   .join()
-     *   .group()
+     * .filter()
+     * .flatMap()
+     * .join()
+     * .group()
      *
      * and many more.
      * Have a look at the programming guide:
@@ -64,8 +64,20 @@ object Job {
      *
      */
 
+    //, String, String, String, String
+    val mails = env.readCsvFile[(String, String)](
+      "/Users/halit/github/quickstart/src/main/resources/processed",
+      lineDelimiter = "##//##",
+      fieldDelimiter = "#|#",
+      includedFields = Array(1, 2)
+    )
+
+    mails.map { t => (t._1.substring(0, 7), t._2, 1) }.groupBy(0, 1).reduce { (g1, g2) => (g1._1, g1._2, g1._3 + g2._3) }.print()
+
+    //mails.first(1).print()
+
 
     // execute program
-    env.execute("Flink Scala API Skeleton")
+    //env.execute("Flink Scala API Skeleton")
   }
 }
