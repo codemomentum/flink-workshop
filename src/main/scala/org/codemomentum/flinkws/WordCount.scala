@@ -1,4 +1,4 @@
-package org.myorg.quickstart
+package org.codemomentum.flinkws
 
 /**
  * Licensed to the Apache Software Foundation (ASF) under one
